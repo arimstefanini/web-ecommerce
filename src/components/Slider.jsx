@@ -1,4 +1,3 @@
-import { Button } from "@material-ui/core";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons"
 import styled from "styled-components"
 
@@ -21,11 +20,11 @@ const Arrow = styled.div`
     top: 0;
     bottom: 0;
     left: ${props=> props.direction === "left" && "10px"};
-    rigth: ${props=> props.direction === "rigth" && "10px"};
+    right: ${props=> props.direction === "rigth" && "10px"};
     margin: auto;
     cursor: poiter;
     opacity: 0.5;
-    z-idenx: 2;
+    z-index: 2;
 `;
 
 const Wrapper = styled.div`
@@ -63,15 +62,15 @@ const Description = styled.p`
     margin: 50px 0px;
     font-size: 20px;
     font-weight: 500;
-    letter-pacing: 3px;
+    letter-spacing: 3px;
 `;
 
-// const Button = styled.button`
-//     paddind: 10px;
-//     font-sized: 20px;
-//     background-color: transparent;
-//     cursor: poiter;
-// `;
+const Button = styled.button`
+    padding: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    cursor: poiter;
+`;
 
 
 const Slider = () => {
