@@ -2,6 +2,7 @@ import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@m
 import React from 'react'
 import styled from 'styled-components';
 
+
 const Info = styled.div`
     opacity: 0;
     width: 100%;
@@ -22,7 +23,7 @@ const Info = styled.div`
 const Container = styled.div`
     flex: 1;
     margin: 5px;
-    min-width: 280px;
+    min-width: 380px;
     height: 350px;
     display: flex;
     align-items: center;
@@ -44,7 +45,7 @@ const Circle = styled.div`
 `;
 
 const Image = styled.img`
-    height: 75px;
+    height: 80%;
     z-index: 2;
 `;
 
@@ -66,7 +67,7 @@ const Icon = styled.div`
 `;
 
 
-export const Product = (item) => {
+export const Product = ({item}) => {
     return (
         <Container>
             <Circle/>

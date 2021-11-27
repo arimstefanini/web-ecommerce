@@ -27,44 +27,45 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
+        img: "https://images.alphacoders.com/113/thumb-1920-113653.jpg",
+        title: "LONTRA",
+    },
+    {
+        id: 2,
         img: "https://wallpaperaccess.com/full/2910710.jpg",
         title: "PINGUIM",
     },
     {
-        id: 2,
+        id: 3,
         img: "https://wallpaper29.files.wordpress.com/2016/09/ice-fox-wallpaper-1600x900.jpg",
         title: "FOX",
     },
-    {
-        id: 3,
-        img: "https://lh3.googleusercontent.com/proxy/HtdChDM4UV62oAjzusFqaYwTSeFLiWmrr_kCfSY-cmoD68hcVpKPMSOWlCKYLgrd-oDYTnuqOepQkhrOWmC_vKTpX_2DColKLIntqEoM90_HxbV0tfIcLvS7BDEokDCOnfwzDFw8t9pJrZskaNGKzeldh2iN-zqSoMI",
-        title: "CASTOR",
-    }
+
 ];
 
 export const popularProducts = [
     {
         id: 1,
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxk6UHsxIq_xnbDCPO9Z_KxxXlWbIMqZRvrw&usqp=CAU",
+        img: "/assets/images/livros/101496938_979941989084673_3260501663072458589_n.jpg",
     },
     {
         id: 2,
-        img: "https://wwfbr.awsassets.panda.org/img/original/ocelot_santago_leopard_project_2_by_spencer_wright.jpg",
+        img: "/assets/images/cozinha/126170466_1417983828538292_5917114308477634363_n.jpg",
     },
     {
         id: 3,
-        img: "https://image.winudf.com/v2/image1/Y29tLmFwcDNkd2FsbHBhcGVyaGQuZ2lyYWZmZXdhbGxwYXBlcl9zY3JlZW5fMF8xNTY3MDEyNjI4XzAxMw/screen-0.jpg?fakeurl=1&type=.jpg",
+        img: "/assets/images/mini_moveis/128781728_708664926445736_5123448433650709637_n.jpg",
     },
     {
         id: 4,
-        img: "https://i.pinimg.com/originals/30/24/2c/30242c235a9209839a111d77e6a742ce.jpg",
+        img: "/assets/images/montessoriano/259722073_223318143268613_4745512144419738785_n.jpg",
     },
     {
         id: 5,
-        img: "https://wallpaperaccess.com/full/1081115.jpg",
+        img: "/assets/images/moveis/223751820_1253178895140968_5320089272406150270_n.jpg",
     },
     {
         id: 6,
-        img: "https://eskipaper.com/images/free-lion-wallpaper-1.jpg",
+        img: "/assets/images/pet/156292834_117759463581484_2339716990922724670_n.jpg",
     }
 ];
