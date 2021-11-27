@@ -1,11 +1,14 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons"
+import React, { useState } from "react";
 import styled from "styled-components"
+import {sliderItems} from "../data"
 
 const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
     position: relative;
+    overflow: hidden;
 `;
 
 const Arrow = styled.div`
@@ -30,7 +33,8 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
-    transform: translateX(-200vw);
+    transition: all 1.5s ease;
+    transform: translateX(${props=>props.slideIndex * -100}vw);
 `;
 
 const Slide = styled.div`
@@ -38,6 +42,7 @@ const Slide = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
+    background-color: #${props=>props.bg};
 `;
 
 const ImgContainer = styled.div`
@@ -46,7 +51,7 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-    height: 80%
+    height: 80%;
 `;
 
 const InfoContainer = styled.div`
@@ -58,7 +63,7 @@ const Title = styled.h1`
     font-size: 70px;
 `;
 
-const Description = styled.p`
+const Desc = styled.p`
     margin: 50px 0px;
     font-size: 20px;
     font-weight: 500;
@@ -72,49 +77,36 @@ const Button = styled.button`
     cursor: poiter;
 `;
 
-
 const Slider = () => {
-    //const [slideIndex, setSlideIndex] = useState(0);
-    //const handleClick = (direction) => {}
+    const [slideIndex, setSlideIndex] = useState(0);
+    const handleClick = (direction) => {
+        if(direction==="left"){
+            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
+        } else {
+            setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+        }
+    }
     
     return (
         <Container>
-             <Arrow direction="left" /*onClick={()=>handleClick("left")}*/>
+            <Arrow direction="left" onClick={()=>handleClick("left")}>
                 <ArrowLeftOutlined/>
             </Arrow>
-            <Wrapper>
-                <Slide bg="f5fafd">
+            <Wrapper slideIndex={slideIndex}>
+                {sliderItems.map((item)=> (
+                <Slide bg={item.bg} key={item.id}>
                     <ImgContainer>
-                        <Image src="https://s1.1zoom.me/b5638/247/Penguins_5_King_penguin_Stroll_554182_1920x1080.jpg"/>
+                        <Image src={item.img}/>
                     </ImgContainer>
                     <InfoContainer>
-                    <Title>NOME DO OBJETO</Title>
-                        <Description>DESCRICAO DO OBJETO DESCRICAO DO OBJETO DESCRICAO DO OBJETO </Description>
-                        
+                        <Title>{item.title}</Title>
+                        <Desc>{item.desc}</Desc>
+                        <Button>MAIS</Button> 
                     </InfoContainer>
                 </Slide>
-                <Slide bg="f5fafd">
-                    <ImgContainer>
-                        <Image src="https://s1.1zoom.me/b5638/247/Penguins_5_King_penguin_Stroll_554182_1920x1080.jpg"/>
-                    </ImgContainer>
-                    <InfoContainer>
-                    <Title>NOME DO OBJETO</Title>
-                        <Description>DESCRICAO DO OBJETO DESCRICAO DO OBJETO DESCRICAO DO OBJETO </Description>
-                        
-                    </InfoContainer>
-                </Slide>
-                <Slide bg="f5fafd">
-                    <ImgContainer>
-                        <Image src="https://s1.1zoom.me/b5638/247/Penguins_5_King_penguin_Stroll_554182_1920x1080.jpg"/>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>NOME DO OBJETO</Title>
-                        <Description>DESCRICAO DO OBJETO DESCRICAO DO OBJETO DESCRICAO DO OBJETO </Description>
-                        
-                    </InfoContainer>
-                </Slide>
+                ))}
             </Wrapper>
-            <Arrow direction="rigth" /*onClick={()=>handleClick("rigth")}*/>
+            <Arrow direction="rigth" onClick={()=>handleClick("left")}>
                 <ArrowRightOutlined/>
             </Arrow>
         </Container>

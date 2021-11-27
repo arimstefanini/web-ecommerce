@@ -20,7 +20,7 @@ const Left = styled.div`
 `;
 
 const Language = styled.span`
-    font-siz: 14px;
+    font-size: 14px;
 `;
 
 const SearchContainer = styled.div`
