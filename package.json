@@ -8,11 +8,20 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.3",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yarn": "^1.22.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arimstefanini/web-ecommerce"
   },
   "scripts": {
     "start": "react-scripts start",
