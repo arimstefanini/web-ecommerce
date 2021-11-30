@@ -10,18 +10,32 @@ const verifyToken = (req, res, next)=>{
             next();
         })
     }else{
-        return res.status(401).json("Falha na autenticação")
+        return res.status(401).json("Falha na autenticação");
     }
-}
+};
 
 const verifyTokenAndAuthorization = (req,res,next)=>{
     verifyToken(req,res, ()=>{
         if(req.user.id === req.params.id || req.user.isAdmin){
-            next()
+            next();
         }else{
-            res.status(403).json("Sem permisão");
+            res.status(403).json("Falha na autenticação");
         }
     });
 };
 
-module.exports = { verifyToken, verifyTokenAndAuthorization }
+const verifyTokenAndAdmin = (req,res,next)=>{
+    verifyToken(req,res, ()=>{
+        if(req.user.isAdmin){
+            next();
+        }else{
+            res.status(403).json("Falha na autenticação");
+        }
+    });
+};
+
+module.exports = { 
+    verifyToken, 
+    verifyTokenAndAuthorization,
+    verifyTokenAndAdmin 
+};
