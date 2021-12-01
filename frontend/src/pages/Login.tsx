@@ -67,8 +67,8 @@ const Login = () => {
             <Wrapper>
                 <Title>SUA CONTA</Title>
                 <Form>
-                    <Input placehoder="Nome" />
-                    <Input placehoder="Sobrenome" />
+                    <Input placeholder="Nome" />
+                    <Input placeholder="Sobrenome" />
                     <Button>Login</Button>
                     <Link>Esqueceu sua senha?</Link>
                     <Link>Criar uma conta</Link>
