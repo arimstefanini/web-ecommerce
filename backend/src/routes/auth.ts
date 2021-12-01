@@ -1,5 +1,5 @@
 import { Router } from "express";
-import User from "../models/User";
+import {UserSchema} from "../models/User";
 import {AES} from "crypto-js";
 import jwt from "jsonwebtoken";
 
@@ -8,7 +8,7 @@ const router = Router();
 //REGISTER
 router.post("/register", async (req,res)=>{
     
-    const newUser = new User({
+    const newUser = new UserSchema({
         username:  req.body.username,
         email: req.body.email,
         password: AES.encrypt(
@@ -28,7 +28,7 @@ router.post("/register", async (req,res)=>{
 //LOGIN
 router.post("/login", async (req,res)=>{
     try{
-        const user = await User.findOne({ username: req.body.username });
+        const user = await UserSchema.findOne({ username: req.body.username });
         !user && res.status(401).json("Senha ou usurário incorretos!");
 
         const hashPassword = CryptoJS.AES.decrypt(

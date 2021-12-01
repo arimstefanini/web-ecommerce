@@ -1,7 +1,6 @@
-import t from 'mongoose';
-const mongoose = Object.assign({}, t);
+import { Schema, model } from 'mongoose';
 
-const ProductSchema = new mongoose.Schema(
+const ProductSchema = new Schema(
     {
         title:{type: String, required: true, unique: true},
         desc:{type:String, required:true},
@@ -15,4 +14,4 @@ const ProductSchema = new mongoose.Schema(
     { timestamps:true }
 );
 
-module.exports = mongoose.model("Product", ProductSchema)
+module.exports = model("Product", ProductSchema)

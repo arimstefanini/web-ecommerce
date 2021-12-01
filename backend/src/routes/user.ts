@@ -1,7 +1,7 @@
-import User from "../models/User";
+import {UserSchema} from "../models/User";
 import { AES } from 'crypto-js';
 import {Router} from "express"
-import { verifyToken,verifyTokenAndAdmin,verifyTokenAndAuthorization } from "./verifyToken";
+import { verifyTokenAndAdmin,verifyTokenAndAuthorization } from "./verifyToken";
 const router = Router();
 
 //UPDATE
@@ -14,7 +14,7 @@ router.put("/:id", verifyTokenAndAuthorization, async (req, res)=>{
     }
 
     try{
-        const updateUser = await User.findByIdAndUpdate(
+        const updateUser = await UserSchema.findByIdAndUpdate(
             req.params.id, 
             {
                 $set: req.body
@@ -30,7 +30,7 @@ router.put("/:id", verifyTokenAndAuthorization, async (req, res)=>{
 //DELETE
 router.delete("/:id", verifyTokenAndAuthorization, async(req,res)=>{
     try{
-        await User.findByIdAndDelete(req.params.id);
+        await UserSchema.findByIdAndDelete(req.params.id);
         res.status(200).json("Usuário deletado...");
     } catch(err){
         res.status(500).json(err);
@@ -40,7 +40,7 @@ router.delete("/:id", verifyTokenAndAuthorization, async(req,res)=>{
 //GET USER
 router.get("/find/:id", verifyTokenAndAdmin, async(req,res)=>{
     try{
-        const user = await User.findById(req.params.id);
+        const user = await UserSchema.findById(req.params.id);
         const { password, ...others } = user._doc;
         res.status(200).json({ ...others});
     } catch(err){
@@ -53,8 +53,8 @@ router.get("/", verifyTokenAndAdmin, async(req, res)=>{
     const query = req.query.new;
     try{
         const users = query 
-        ? await User.find().sort({ _id: -1 }).limiy(5) 
-        : await User.find();
+        ? await UserSchema.find().sort({ _id: -1 }).limit(5) 
+        : await UserSchema.find();
         res.status(200).json(users);
     } catch(err){
         res.status(500).json(err);
@@ -66,7 +66,7 @@ router.get("/stats", verifyTokenAndAdmin, async(req, res)=>{
     const date = new Date()
     const lastYear = new Date(date.setFullYear(date.getFullYear() -1));
     try{ 
-        const data = await User.aggregate([
+        const data = await UserSchema.aggregate([
             { $macth: { createdAt: { $gte: lastYear } } },
             {
                 $project: {

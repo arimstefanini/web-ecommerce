@@ -1,8 +1,6 @@
-import t from 'mongoose';
-const mongoose = Object.assign({}, t);
+import { Schema, model } from 'mongoose';
 
-
-const CartSchema = new mongoose.Schema(
+const CartSchema = new Schema(
     {
         userId:{type: String, required: true},
         products:[
@@ -21,4 +19,4 @@ const CartSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Cart", CartSchema)
+module.exports = model("Cart", CartSchema)
