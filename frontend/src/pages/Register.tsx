@@ -58,19 +58,18 @@ const Button = styled.button`
     cursor: pointer;
 `;
 
-
 const Register = () => {
     return(
         <Container>
             <Wrapper>
                 <Title>CRIE UM CONTA</Title>
                 <Form>
-                    <Input placehoder="Nome" />
-                    <Input placehoder="Sobrenome" />
-                    <Input placehoder="email" />
-                    <Input placehoder="usuário" />
-                    <Input placehoder="senha" />
-                    <Input placehoder="confirme senha" />
+                    <Input placeholder="Nome" />
+                    <Input placeholder="Sobrenome" />
+                    <Input placeholder="email" />
+                    <Input placeholder="usuário" />
+                    <Input placeholder="senha" />
+                    <Input placeholder="confirme senha" />
                     <Agreement>
                         Ao criar uma conta, aceito os Ao criar uma conta, aceito os <b>TERMOS</b>
                     </Agreement>

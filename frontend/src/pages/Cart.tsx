@@ -28,7 +28,7 @@ const Top = styled.div`
     padding: 20px;
 `;
 
-const TopBotton = styled.button`
+const TopBotton = styled.button<{type?:any}>`
     padding: 10px;
     font-weight: 600;
     cursor: pointer;
@@ -140,7 +140,7 @@ const SummaryTitle = styled.h1`
     font-weight: 200;
 `;
 
-const SummaryItem = styled.div`
+const SummaryItem = styled.div<{type?:any}>`
     margin: 30px 0px;
     display: flex;
     justify-content: space-between;

@@ -1,8 +1,8 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons"
-import React, { useState } from "react";
+import { useState } from 'react';
 import styled from "styled-components"
-import { sliderItems } from "../../data"
-import { mobile } from "../../responsive";
+import { sliderItems } from "../data";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
     width: 100%;
@@ -13,7 +13,7 @@ const Container = styled.div`
     ${mobile({ display: "none" })}
 `;
 
-const Arrow = styled.div`
+const Arrow = styled.div<{direction:string}>`
     width: 50px;
     height: 50px;
     background-color: #fff7f7;
@@ -32,14 +32,14 @@ const Arrow = styled.div`
     z-index: 2;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ slideIndex:any }>`
     height: 100%;
     display: flex;
     transition: all 1.5s ease;
     transform: translateX(${props=>props.slideIndex * -100}vw);
 `;
 
-const Slide = styled.div`
+const Slide = styled.div<{bg:string}>`
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -81,7 +81,7 @@ const Button = styled.button`
 
 const Slider = () => {
     const [slideIndex, setSlideIndex] = useState(0);
-    const handleClick = (direction) => {
+    const handleClick = (direction:string) => {
         if(direction==="left"){
             setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
         } else {

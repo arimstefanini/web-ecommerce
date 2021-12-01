@@ -66,8 +66,11 @@ const Icon = styled.div`
     }
 `;
 
+interface IProduct{
+    item:any;
+};
 
-export const Product = ({item}) => {
+const Product = ({ item }: IProduct ) => {
     return (
         <Container>
             <Circle/>

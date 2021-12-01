@@ -44,7 +44,12 @@ const Button = styled.button`
     font-weight: 600;
 `;
 
-const CategoryItem = ({ item }) => {
+interface ICategoryItem{
+    item:any;
+};
+
+const CategoryItem = ({ item }: ICategoryItem ) => {
+
     return(
         <Container>
             <Image src={item.img}/>
