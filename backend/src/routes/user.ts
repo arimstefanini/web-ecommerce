@@ -9,7 +9,7 @@ router.put("/:id", verifyTokenAndAuthorization, async (req, res)=>{
     if(req.body.password){
         req.body.password = AES.encrypt(
             req.body.password,
-            process.env.PASS_SEC as string
+            process.env.PASS_SEC
         ).toString();
     }
 
@@ -87,4 +87,5 @@ router.get("/stats", verifyTokenAndAdmin, async(req, res)=>{
     }
 })
 
+module.exports = router
 export default router;
