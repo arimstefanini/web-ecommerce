@@ -32,7 +32,7 @@ const Arrow = styled.div<{direction:string}>`
     z-index: 2;
 `;
 
-const Wrapper = styled.div<{ slideIndex:any }>`
+const Wrapper = styled.div<{ slideIndex:number }>`
     height: 100%;
     display: flex;
     transition: all 1.5s ease;
@@ -108,7 +108,7 @@ const Slider = () => {
                 </Slide>
                 ))}
             </Wrapper>
-            <Arrow direction="rigth" onClick={()=>handleClick("left")}>
+            <Arrow direction="rigth" onClick={()=>handleClick("rigth")}>
                 <ArrowRightOutlined/>
             </Arrow>
         </Container>

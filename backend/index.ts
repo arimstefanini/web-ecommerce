@@ -1,12 +1,13 @@
 import express from "express";
-import mongoose from "mongoose";
+import { connect } from 'mongoose';
 import dotenv from "dotenv";
-import userRoute from "./routes/user";
-import authRoute from "./routes/auth";
+import userRoute from "./src/routes/user";
+import authRoute from "./src/routes/auth";
+
 const app = express();
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL)
+connect(process.env.MONGO_URL as string)
  .then(()=>console.log("DBConnection Successfull!"))
  .catch((err)=>{
    console.log(err)

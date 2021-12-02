@@ -2,6 +2,7 @@ import { Router } from "express";
 import {UserSchema} from "../models/User";
 import {AES} from "crypto-js";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
 const router = Router();
 
@@ -13,7 +14,7 @@ router.post("/register", async (req,res)=>{
         email: req.body.email,
         password: AES.encrypt(
             req.body.password, 
-            process.env.PASS_SEC
+            process.env.PASS_SEC as string
         ).toString(),
     });
 
@@ -33,7 +34,7 @@ router.post("/login", async (req,res)=>{
 
         const hashPassword = CryptoJS.AES.decrypt(
             user.password,
-            process.env.PASS_SEC
+            process.env.PASS_SEC as string
         );
         const OriginalPassword = hashPassword.toString(CryptoJS.enc.Utf8);
 
@@ -43,7 +44,7 @@ router.post("/login", async (req,res)=>{
         const acessToken = jwt.sign({
             id:user._id, 
             isAdmin: user.isAdmin
-        }, process.env.JWT_SEC,
+        }, process.env.JWT_SEC as string,
             {expiresIn:"3d"}
         );
 
@@ -56,4 +57,4 @@ router.post("/login", async (req,res)=>{
     }
 });
 
-module.exports = router
+export default router;
