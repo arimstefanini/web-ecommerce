@@ -1,14 +1,14 @@
 {
   "name": "backend-elliottii",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "https://github.com/arimstefanini/web-ecommerce",
   "author": "Ariela",
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/index.ts",
     "build": "tsc",
-    "start": "node src/index.js"
+    "start": "node src/index.ts"
   },
   "dependencies": {
     "@types/crypto-js": "^4.0.2",
