@@ -1,4 +1,4 @@
-#updated project
+# updated project
 ##  backend: https://github.com/arimstefanini/ecommerce-backend
 ##  frontend:
 
